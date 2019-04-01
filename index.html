@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="List"></p>
+<script>
+    let inputNum = parseInt(prompt("Nhập số lượng số nguyên tố cần in :"));
+    let count = 0;
+    let num = 2;
+    let list="";
+
+    while(count != inputNum){
+        if(num==2 || num==3) {
+            count++;
+            list += "" + num + "    ";
+        }else {
+            let flag = true;
+            for (let i = 2; i <= Math.sqrt(num); i++)
+                if (num % i == 0){
+                    flag = false;
+                    break;
+                }
+            if (flag == true) {
+                count++;
+                list += "" + num + "    ";
+            }
+        }
+        num++;
+    }
+    document.getElementById("List").innerHTML = list;
+</script>
+</body>
+</html>
